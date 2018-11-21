@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if (!isset($_SESSION['usuariologaluno'])) {
+		header("Location: portal_aluno.php");
+		die();
+	}
+?>	
+
 <!DOCTYPE html>
 <html>
 <head>

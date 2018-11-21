@@ -1,6 +1,12 @@
 <?php
  $falta = $_GET['nota'] = &$nota;
  $id = $_GET['id'] = "id_aluno";
+
+ session_start();
+	if (!isset($_SESSION['usuariologprof'])) {
+		header("Location: portal_prof.php");
+		die();
+	}
 ?>
 
 <!DOCTYPE html>

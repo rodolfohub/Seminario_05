@@ -62,7 +62,7 @@
 					</td>
 
 					<td style="padding-right: 10px;">
-					<form method="POST" action="editar_aluno.php">
+					<form method="POST" action="classes/editar_aluno.php">
 						 <input autofocus type="text" name="falta" required value="<?php echo $falta;?>">	
 					</td>
 

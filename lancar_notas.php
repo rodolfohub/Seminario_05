@@ -61,7 +61,7 @@
 					</td>
 
 					<td style="padding-right: 10px;">
-					<form method="POST" action="editar_aluno.php">
+					<form method="POST" action="classes/editar_aluno.php">
 						 <input autofocus type="text" name="nota" required value="<?php echo $nota;?>">	
 					</td>
 

@@ -1,3 +1,8 @@
+<?php
+ $falta = $_GET['nota'] = &$nota;
+ $id = $_GET['id'] = "id_aluno";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,14 +24,16 @@
 			<th>Id Aluno</th>
 			<th>Aluno</th>
 			<th>Turma</th>
+			<th>IdDisciplina</th>
 			<th>Nota</th>
+			<th>Ação</th>
 		</tr>
 
 		<?php
 			require 'conexao.php';
 			require 'classes/editar_aluno.php';
 			$usuario=new Usuarios($pdo); // passa como parametro a conexao $pdo
-			$lista=$usuario->getUsuarios(); //chama o metodo
+			$lista=$usuario->getAlunosNota(); //chama o metodo
 
 			foreach ($lista as $user) { //para cada item da $lista define um $user
 		?>
@@ -44,8 +51,18 @@
 					</td>
 
 					<td style="padding-right: 10px;">
-						<?php echo $user['nota'];?>						
+						<?php echo $user['id_disciplina'];?>						
 					</td>
+
+					<td style="padding-right: 10px;">
+					<form method="POST" action="editar_aluno.php">
+						 <input autofocus type="text" name="nota" required value="<?php echo $nota;?>">	
+					</td>
+
+					<td style="padding-right: 10px;">
+						<input type="submit" value="Salvar" name="btn_salvar">						
+					</td>
+					</form>	
 				</tr>
 
 	<?php
@@ -53,6 +70,5 @@
 			exit;
 	?>		
 	</table>
-
 </body>
 </html>

@@ -1,0 +1,27 @@
+
+<td>
+<a href="lancamento_nota_aluno.php?idaluno=$idaluno">
+	AVALIAR
+</a>
+</td>
+
+//lancamento_nota_aluno.php
+
+<form action="salvar_nota_aluno.php">
+	<input type="text" id="notaluno" name="notaluno"/>
+	<input type="hidden" name="idaluno" value="<?=$_GET['idaluno']?>"
+	<input type="submit" value="SALVAR" />
+</form>
+
+//salvar_nota_aluno.php
+
+$idaluno = $_POST['idaluno'];
+$nota = $_POST['notaluno'];
+
+$sql = "UPDATE aluno_disciplina SET nota=$nota WHERE idaluno = $idaluno";
+
+$r = DB::prepare($sql);
+
+$r->execute();
+
+//FIM

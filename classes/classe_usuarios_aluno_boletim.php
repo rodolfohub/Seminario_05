@@ -11,7 +11,39 @@
 
 class Usuarios{
 	private $pdo;
-	
+	/*
+	private $falta;
+	private $id;
+	private $idDisc
+
+	public function setId($id)
+	{
+		$this->id = $id;
+	}
+	public function getId()
+	{
+		return $this->id;
+	}
+
+	public function setFalta($falta)
+	{
+		$this->falta = $Falta;
+	}
+	public function getFalta()
+	{
+		return $this->Falta;
+	}
+
+	public function setIdDisc($idDisc)
+	{
+		$this->idDisc = $idDisc;
+	}
+	public function getIdDisc()
+	{
+		return $this->idDisc;
+	}
+
+	*/
 	public function __construct($pdo){//salva a conexão dentro da classe
 		$this->pdo=$pdo;
 	}
@@ -29,6 +61,15 @@ class Usuarios{
 			$array=$sql->fetchAll();//lista tudo
 		}
 		return $array;		
+	}
+
+	public function editar(Usuarios $dados) {
+		$sql = "UPDATE aluno_disciplina SET faltas=:v_falta WHERE id_aluno=:v_id AND id_disciplina=:v_idDisc";
+		$sql = $this->pdo->prepare($sql);
+		$sql->bindValue(":v_falta", $dados->getFalta());
+		$sql->bindValue(":v_id", $dados->getId());
+		$sql->bindValue(":v_idDisc", $dados->getIdDisc());
+		$sql->execute();
 	}
 }
 ?>

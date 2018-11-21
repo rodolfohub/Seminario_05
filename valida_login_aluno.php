@@ -1,5 +1,10 @@
 <?php
-
+	session_start();
+	if (isset($_SESSION['usuariologaluno'])) {
+		header("Location: portal_aluno.php");
+		die();
+	}
+	
 	require 'conexao.php';
 
 	if (isset($_POST['nome']) && !empty($_POST['nome'])){
@@ -15,6 +20,7 @@
 
 		 
 			if($sql->rowCount()>0){
+				$_SESSION['usuariologaluno'] = true;
 				header("Location:portal_aluno.php");
 				exit;
 			}else{

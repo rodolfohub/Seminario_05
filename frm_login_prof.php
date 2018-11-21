@@ -1,3 +1,13 @@
+<?php
+	session_start();
+	if (isset($_SESSION['usuariologprof'])) {
+		header("Location: portal_prof.php");
+		die();
+	}
+
+	$_SESSION['usuario'] = $_GET['nome'];
+?>	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +27,7 @@
 					<form method="POST" action="valida_login_prof.php">
 					<ul>Usuário</ul>	
 					<input autofocus type="text" name="nome" 
-						placeholder="Digite o nome" required/>
+						placeholder="Digite o nome" href="$_SESSION['usuario'] = ?nome" required/>
 					<ul>Senha</ul>
 					<input type="password" name="senha" 
 						placeholder="Inserir uma senha" required/>

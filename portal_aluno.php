@@ -1,3 +1,16 @@
+<?php
+	session_start();
+
+	if (!isset($_SESSION['usuariologaluno'])){
+		header("Location: frm_login_aluno.php");
+	}
+
+	if (isset($_GET['SairAluno'])) {
+		session_destroy();
+		header("Location: frm_login_aluno.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +19,6 @@
 	<link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
-	<h1>Sistema Acadêmico</h1>
 	<div class="background">
 		<div class="topo">
 			<div class="subtopo">
@@ -25,8 +37,8 @@
 			<h1>Menu</h1>
 				<ul>
 					<li><a href="boletim.php"> Boletim</a></li>
-					<li><a href="#"> Imprimir Boleto</a></li>
-					<li><a href="index.php">Sair</a></li>
+					<li><a href="boletos.php"> Imprimir Boleto</a></li>
+					<li><a href="?SairAluno">Sair</a></li>
 				</ul>
 		</div>
 	</div>

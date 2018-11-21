@@ -1,3 +1,16 @@
+<?php
+	session_start();
+
+	if (!isset($_SESSION['usuariologprof'])){
+		header("Location: frm_login_prof.php");	
+	}
+
+	if (isset($_GET['SairProf'])) {
+		session_destroy();
+		header("Location: frm_login_prof.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +38,7 @@
 				<ul>
 					<li><a href="lancar_notas.php">Lançar Notas</a></li>
 					<li><a href="lancar_faltas.php">Lançar Faltas</a></li>
-					<li><a href="index.php">Sair</a></li>
+					<li><a href="?SairProf">Sair</a></li>
 				</ul>
 		</div>
 	</div>

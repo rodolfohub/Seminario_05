@@ -15,12 +15,12 @@
 		</div>
 	<h1 align="center">BOLETIM ACADÊMICO</h1>
 	<table class="boletim">
-		<tr>
-			<th>Id Disciplina</th>
-			<th>Disciplina</th>
-			<th>nota</th>
-			<th>faltas</th>
-		</tr>
+			<tr>
+				<th>Id Disciplina</th>
+				<th>Disciplina</th>
+				<th>nota</th>
+				<th>faltas</th>
+			</tr>
 
 		<?php
 			require 'conexao.php';
@@ -46,13 +46,13 @@
 					<td style="padding-right: 10px;">
 						<?php echo $user['faltas'];?>						
 					</td>
-				
+
 				</tr>
 
-	<?php
-		}
-			exit;
-	?>		
+		<?php
+			}
+				exit;
+		?>				
 	</table>
 </body>
 </html>

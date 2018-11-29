@@ -17,6 +17,11 @@
 	height: 31px;
 }
 
+.topoa{
+	background-color: #0096ff;
+	height: 31px;
+}
+
 .entrar{
 	cursor: pointer;
 	float: center;
@@ -33,8 +38,6 @@
 }
 
 .subtopo{
-	height: 30px;
-	width: 800px;
 	margin: auto;
 }
 
@@ -113,7 +116,7 @@
 }
 
 .menu li{
-	margin-top: 20px;
+	margin-top: 6%;
 	cursor: pointer;
 	text-align:center;
 	list-style: none;
@@ -121,12 +124,17 @@
 	border-radius: 5px;
 	width: 200px;
 	height: 30px; 
+	margin-right: 5%;
 }
 
 .menu h1{
 	text-align: center;
 	color: #4c4c4c;
 
+}
+
+.menu ul{
+	float: center;
 }
 
 .erro{

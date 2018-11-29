@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 20-Nov-2018 às 20:05
+-- Generation Time: 29-Nov-2018 às 11:02
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -25,14 +25,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `administradores`
+--
+
+CREATE TABLE `administradores` (
+  `id_adm` int(6) NOT NULL,
+  `nome_adm` varchar(50) NOT NULL,
+  `usuario_adm` varchar(12) NOT NULL,
+  `senha_adm` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `administradores`
+--
+
+INSERT INTO `administradores` (`id_adm`, `nome_adm`, `usuario_adm`, `senha_adm`) VALUES
+(1, 'Rodolfo Azevedo', 'rodolfoadm', 123);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `aluno`
 --
 
 CREATE TABLE `aluno` (
   `id_aluno` int(6) NOT NULL,
   `nome_aluno` varchar(100) NOT NULL,
-  `usuario_aluno` varchar(50) NOT NULL,
-  `senha_aluno` varchar(8) NOT NULL,
   `turma` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -40,12 +58,12 @@ CREATE TABLE `aluno` (
 -- Extraindo dados da tabela `aluno`
 --
 
-INSERT INTO `aluno` (`id_aluno`, `nome_aluno`, `usuario_aluno`, `senha_aluno`, `turma`) VALUES
-(1, 'Rodolfo Azevedo', 'rodolfo', '123', 10),
-(2, 'Joao Pedro', 'joao', '123', 10),
-(3, 'Emerson Cayo', 'emerson', '123', 10),
-(4, 'Felipe Nascimento', 'felipe', '123', 10),
-(5, 'Aldemar Mendes', 'Aldemar', '123', 10);
+INSERT INTO `aluno` (`id_aluno`, `nome_aluno`, `turma`) VALUES
+(1, 'Rodolfo Azevedo', 10),
+(2, 'Joao Pedro', 10),
+(3, 'Emerson Cayo', 10),
+(4, 'Felipe Nascimento', 10),
+(5, 'Aldemar Mendes', 10);
 
 -- --------------------------------------------------------
 
@@ -122,8 +140,6 @@ INSERT INTO `disciplina` (`id_disciplina`, `nome_disciplina`) VALUES
 CREATE TABLE `professor` (
   `id_professor` int(6) NOT NULL,
   `nome_professor` varchar(100) NOT NULL,
-  `usuario_professor` varchar(50) NOT NULL,
-  `senha_professor` varchar(8) NOT NULL,
   `id_disciplina` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -131,12 +147,12 @@ CREATE TABLE `professor` (
 -- Extraindo dados da tabela `professor`
 --
 
-INSERT INTO `professor` (`id_professor`, `nome_professor`, `usuario_professor`, `senha_professor`, `id_disciplina`) VALUES
-(1, 'Bruno', 'profbruno', '123', 1),
-(2, 'Marcos Sá', 'profsa', '123', 2),
-(3, 'Pedriana', 'profpedrina', '123', 3),
-(4, 'Aline', 'profaline', '123', 4),
-(5, 'Frederico', 'proffred', '123', 5);
+INSERT INTO `professor` (`id_professor`, `nome_professor`, `id_disciplina`) VALUES
+(1, 'Bruno', 1),
+(2, 'Marcos Sá', 2),
+(3, 'Pedriana', 3),
+(4, 'Aline', 4),
+(5, 'Frederico', 5);
 
 -- --------------------------------------------------------
 
@@ -233,6 +249,13 @@ INSERT INTO `usuarios_prof` (`id_usuario`, `nome_usuario`, `usuario`, `senha`, `
 --
 
 --
+-- Indexes for table `administradores`
+--
+ALTER TABLE `administradores`
+  ADD PRIMARY KEY (`id_adm`),
+  ADD UNIQUE KEY `usuario_adm` (`usuario_adm`);
+
+--
 -- Indexes for table `aluno`
 --
 ALTER TABLE `aluno`
@@ -267,6 +290,12 @@ ALTER TABLE `usuarios_prof`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `administradores`
+--
+ALTER TABLE `administradores`
+  MODIFY `id_adm` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `aluno`

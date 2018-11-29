@@ -24,7 +24,7 @@
 			<div class="subtopo">
 				<dir class="info">
 					<h2>
-					 	Bem vindo!
+					 	Bem vindo, <?php echo $_SESSION['nome_aluno']?>!
 					</h2>
 				</dir>
 				<div class="logo">
@@ -42,5 +42,6 @@
 				</ul>
 		</div>
 	</div>
+	
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	if (isset($_SESSION['usuariologaluno'])) {
-		header("Location: portal_aluno.php");
+	if (isset($_SESSION['usuariologadm'])) {
+		header("Location: admin.php");
 		die();
 	}
 	
@@ -11,7 +11,7 @@
 
 		$login=$_POST['nome'];
 		$senha=$_POST['senha'];
-		$sql="SELECT * FROM usuarios_aluno WHERE usuario=:v_login AND senha=:v_senha";
+		$sql="SELECT * FROM administradores WHERE usuario_adm=:v_login AND senha_adm=:v_senha";
 
 		$sql=$pdo->prepare($sql);
 		$sql->bindValue(":v_login",$login);
@@ -20,9 +20,8 @@
 
 		 
 			if($sql->rowCount()>0){
-				$_SESSION['usuariologaluno'] = true;
-				$_SESSION['nome_aluno']=$_POST['nome'];
-				header("Location:portal_aluno.php");
+				$_SESSION['usuariologadm'] = true;
+				header("Location:admin.php");
 				exit;
 			}else{
 				header("Location:error.php");

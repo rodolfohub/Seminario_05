@@ -35,7 +35,7 @@
 						<?php echo "Vencimento: 10/"; echo date("m/Y");?>
 					</td>
 					<td>
-						<?php echo " - Valor atual até o vencimento, R$ 500,00.";?>
+						<?php echo " Valor atual até o vencimento, R$ 500,00.";?>
 					</td>
 					<td>
 						<a href="boleto.pdf"> Gerar Boleto</a>

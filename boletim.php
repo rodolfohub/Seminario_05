@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if (!isset($_SESSION['usuariologaluno'])) {
-		header("Location: portal_aluno.php");
+		header("Location: frm_login_aluno.php");
 		die();
 	}
 ?>	
@@ -31,10 +31,11 @@
 			</tr>
 
 		<?php
+			
 			require 'conexao.php';
-			require 'classes/classe_usuarios_aluno_boletim.php';
+			require 'classes/classe_usuarios.php';
 			$usuario=new Usuarios($pdo); // passa como parametro a conexao $pdo
-			$lista=$usuario->getUsuarios(); //chama o metodo
+			$lista=$usuario->getBoletim(); //chama o metodo
 
 			foreach ($lista as $user) { //para cada item da $lista define um $user
 		?>

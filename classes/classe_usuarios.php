@@ -25,7 +25,7 @@
 			$this->pdo=$pdo;
 		}
 
-		public function getBoletim(usuarios $aluno){
+		public function getBoletim(){
 			$array = array(); 
 			$sql="SELECT disciplina.id_disciplina, disciplina.nome_disciplina, aluno_disciplina.nota, aluno_disciplina.faltas from disciplina 
 				INNER JOIN aluno_disciplina ON disciplina.id_disciplina = aluno_disciplina.id_disciplina 

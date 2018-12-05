@@ -25,7 +25,7 @@
 		</div>
 		<div class="menu">
 					<ul>
-						<li><a href="editar_aluno.php">Editar Alunos</a></li>
+						<li><a href="classes/editar_aluno.php">Cadastrar Alunos</a></li>
 						<li><a href="excluir_aluno.php">Excluir Alunos</a></li>
 						<li><a href="editar_prof.php">Editar Professores</a></li>
 						<li><a href="excluir_prof.php">Excluir Professores</a></li>

@@ -1,17 +1,11 @@
- <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>BOLETIM</title>
-	<link rel="stylesheet" type="text/css" href="estilo.css">
-</head>
-<body>
 
 <?php
 
 	class Usuarios{
 		private $pdo;
 		private $aluno;
+		private $nome;
+		private $turma;
 
 		public function setUsr_aluno($usr_aluno){
 			$this->usr_aluno = $usr_aluno;
@@ -20,6 +14,19 @@
 			return $this->usr_aluno;
 		}
 
+		public function setNome($nome){
+			$this->nome = $nome;
+		}
+		public function getNome(){
+			return $this->nome;
+		}
+
+		public function setTurma($turma){
+			$this->turma = $turma;
+		}
+		public function getTurma(){
+			return $this->turma;
+		}
 		
 		public function __construct($pdo){
 			$this->pdo=$pdo;
@@ -50,7 +57,16 @@
 			$sql->bindValue(":v_id", $dados->getId());
 			$sql->bindValue(":v_idDisc", $dados->getIdDisc());
 			$sql->execute();
-		}
+			}
+
+			public function cadastrarAluno(Usuarios $dados) {
+			$sql = "INSERT INTO aluno (nome_aluno, turma) VALUES (:v_nome, :v_turma))";
+			$sql = $this->pdo->prepare($sql);
+			$sql->bindValue(":v_nome", $dados->getNome());
+			$sql->bindValue(":v_turma", $dados->getTurma());
+			$sql->execute();
+			}
+
 	}
 
 ?>

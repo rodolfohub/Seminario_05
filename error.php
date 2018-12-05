@@ -7,7 +7,7 @@
 </head>
 <body bgcolor="#81F7F3">
 	<div class="erro">
-		<img src="erro.png" height="100px" width="100px">
+		<img src="erro.png" height="50px" width="50px">
 		<h3>Usuário ou senha inválidos!</h3>
 		<p>O usuário ou senha estão incorreto.</br>
 		   Verifique o CAPS LOCK ou tente as opções abaixo:

@@ -1,59 +1,18 @@
-<?php
-
-class Usuarios{
-	private $pdo;
-	
-	public function __construct($pdo){//salva a conexão dentro da classe
-		$this->pdo=$pdo;
-	}
-	
-	public function getAlunosNota(){//Listar todos os usuários
-		$array = array(); //definindo uma variável do tipo arrayj
-
-		$sql="SELECT aluno.id_aluno, aluno.nome_aluno, aluno.turma, disciplina.id_disciplina, aluno_disciplina.nota from aluno
-
-			INNER JOIN aluno_disciplina ON aluno.id_aluno = aluno_disciplina.id_aluno
-
-			INNER JOIN disciplina ON disciplina.id_disciplina = aluno_disciplina.id_disciplina
-
-			WHERE disciplina.id_disciplina = 1";//Listar tudo da tabela usuarios
-		
-		$sql=$this->pdo->query($sql);
-		
-		if ($sql->rowCount()>0) {//tem registro?
-			$array=$sql->fetchAll();//lista tudo
-		}
-		return $array;		
-	}
-
-	public function getAlunosFaltas(){//Listar todos os usuários
-		$array = array(); //definindo uma variável do tipo arrayj
-
-		$sql="SELECT aluno.id_aluno, aluno.nome_aluno, aluno.turma, disciplina.id_disciplina, aluno_disciplina.faltas from aluno
-
-			INNER JOIN aluno_disciplina ON aluno.id_aluno = aluno_disciplina.id_aluno
-
-			INNER JOIN disciplina ON disciplina.id_disciplina = aluno_disciplina.id_disciplina
-
-			WHERE disciplina.id_disciplina = 1";//Listar tudo da tabela usuarios
-		
-		$sql=$this->pdo->query($sql);
-		
-		if ($sql->rowCount()>0) {//tem registro?
-			$array=$sql->fetchAll();//lista tudo
-		}
-		return $array;		
-	}
-
-	public function editar(Usuarios $dados) {
-		$sql = "UPDATE aluno_disciplina SET falta=:v_falta WHERE id_aluno=:v_id AND id_disciplina=:v_idDisc";
-		$sql = $this->pdo->prepare($sql);
-		$sql->bindValue(":v_falta", $dados->getFalta());
-		$sql->bindValue(":v_id", $dados->getId());
-		$sql->bindValue(":v_idDisc", $dados->getIdDisc());
-		$sql->execute();
-	}
-
-
-}
-?>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cadastrar Alunos</title>       
+    </head>
+    <body>
+        <h2>Cadastro de Alunos</h2>
+       <form method="POST" action="Seminario_05/cadastrar_aluno.php"> 
+          <label>Nome</label> 
+          <input autofocus type="tex" name="nome" placeholder="Nome do aluno" required style="margin-left: 10px;margin-bottom: 10px;width: 350px" /><br>
+          
+          <label>Turma</label> 
+          <input type="text" name="turma" placeholder="Turma do aluno" style="margin-left: 22px;margin-bottom: 10px" />
+          <br>
+          <input type="submit" value="Salvar" name="btn_salvar" > 
+        </form>  
+    </body>
+</html>
